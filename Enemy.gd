@@ -21,3 +21,8 @@ func _process(delta: float) -> void:
 			target_pos = start_pos + move_dir	
 		else:
 			target_pos = start_pos
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		body.game_over()
