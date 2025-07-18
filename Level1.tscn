@@ -24,5 +24,6 @@ position = Vector2(0, -11)
 scale = Vector2(1, 0.84)
 shape = SubResource("CapsuleShape2D_lmyl5")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -26)
 zoom = Vector2(3, 3)
