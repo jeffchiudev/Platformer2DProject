@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://taeh2lx7dy8w"]
+[gd_scene load_steps=6 format=4 uid="uid://taeh2lx7dy8w"]
 
 [ext_resource type="TileSet" uid="uid://8h44iclr03gd" path="res://Level1.tres" id="1_cove1"]
 [ext_resource type="Script" uid="uid://b3h31y0nehlcn" path="res://Player.gd" id="2_dwyiq"]
 [ext_resource type="Texture2D" uid="uid://cjfbasl7eygp0" path="res://Sprites/Characters/character_0002.png" id="3_dn5ey"]
-[ext_resource type="Script" uid="uid://d3svvmej6wp8w" path="res://Enemy.gd" id="4_dn5ey"]
-[ext_resource type="Texture2D" uid="uid://dpfw6ck4mow1p" path="res://Sprites/Characters/character_0024.png" id="5_lmyl5"]
+[ext_resource type="PackedScene" uid="uid://hdgt8xvq3nhl" path="res://Enemy.tscn" id="4_dwyiq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lmyl5"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_mlbie"]
 
 [node name="Main" type="Node2D"]
 
@@ -32,16 +29,13 @@ shape = SubResource("CapsuleShape2D_lmyl5")
 position = Vector2(0, -26)
 zoom = Vector2(3, 3)
 
-[node name="Enemy" type="Area2D" parent="."]
-script = ExtResource("4_dn5ey")
-move_dir = Vector2(0, -50)
+[node name="Enemy" parent="." instance=ExtResource("4_dwyiq")]
 
-[node name="Sprite" type="Sprite2D" parent="Enemy"]
-position = Vector2(95, -12)
-texture = ExtResource("5_lmyl5")
+[node name="Enemy2" parent="." instance=ExtResource("4_dwyiq")]
+position = Vector2(239, -55)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-position = Vector2(95, -12)
-shape = SubResource("CircleShape2D_mlbie")
+[node name="Enemy3" parent="." instance=ExtResource("4_dwyiq")]
+position = Vector2(321, -70)
 
-[connection signal="body_entered" from="Enemy" to="Enemy" method="_on_body_entered"]
+[node name="Enemy4" parent="." instance=ExtResource("4_dwyiq")]
+position = Vector2(562, -76)
