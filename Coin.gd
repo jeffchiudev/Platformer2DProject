@@ -11,3 +11,10 @@ func _process(delta: float) -> void:
 	
 	var d = (sin(t * bob_speed) + 1) / 2
 	global_position.y = start_y + (d * bob_height)
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		body.add_score(1)
+		queue_free() # destroys coin

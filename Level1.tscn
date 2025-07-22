@@ -58,3 +58,5 @@ texture = ExtResource("6_lmyl5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
 shape = SubResource("CircleShape2D_mlbie")
+
+[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]
