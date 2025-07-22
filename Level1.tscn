@@ -1,11 +1,16 @@
-[gd_scene load_steps=6 format=4 uid="uid://taeh2lx7dy8w"]
+[gd_scene load_steps=9 format=4 uid="uid://taeh2lx7dy8w"]
 
 [ext_resource type="TileSet" uid="uid://8h44iclr03gd" path="res://Level1.tres" id="1_cove1"]
 [ext_resource type="Script" uid="uid://b3h31y0nehlcn" path="res://Player.gd" id="2_dwyiq"]
 [ext_resource type="Texture2D" uid="uid://cjfbasl7eygp0" path="res://Sprites/Characters/character_0002.png" id="3_dn5ey"]
 [ext_resource type="PackedScene" uid="uid://hdgt8xvq3nhl" path="res://Enemy.tscn" id="4_dwyiq"]
+[ext_resource type="Script" uid="uid://cpbjqgnhd5sl4" path="res://Spikes.gd" id="5_lmyl5"]
+[ext_resource type="Texture2D" uid="uid://bj4phc7ceh37p" path="res://Sprites/Objects/tile_0068.png" id="6_mlbie"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lmyl5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3sxq"]
+size = Vector2(18, 10.75)
 
 [node name="Main" type="Node2D"]
 
@@ -39,3 +44,14 @@ position = Vector2(321, -70)
 
 [node name="Enemy4" parent="." instance=ExtResource("4_dwyiq")]
 position = Vector2(562, -76)
+
+[node name="Spikes" type="Area2D" parent="."]
+position = Vector2(261, -27)
+script = ExtResource("5_lmyl5")
+
+[node name="Sprite" type="Sprite2D" parent="Spikes"]
+texture = ExtResource("6_mlbie")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes"]
+position = Vector2(0, 5.375)
+shape = SubResource("RectangleShape2D_s3sxq")
