@@ -5,6 +5,7 @@ var jump_force : float = 200.0
 var gravity : float = 500.0
 
 var score : int = 0
+@onready var score_text : Label = get_node("CanvasLayer/ScoreText")
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -33,3 +34,4 @@ func game_over ():
 	
 func add_score (amount):
 	score += amount
+	score_text.text = str("Score: ", score)
