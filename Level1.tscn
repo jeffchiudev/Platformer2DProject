@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://taeh2lx7dy8w"]
+[gd_scene load_steps=10 format=4 uid="uid://taeh2lx7dy8w"]
 
 [ext_resource type="TileSet" uid="uid://8h44iclr03gd" path="res://Level1.tres" id="1_cove1"]
 [ext_resource type="Script" uid="uid://b3h31y0nehlcn" path="res://Player.gd" id="2_dwyiq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://hdgt8xvq3nhl" path="res://Enemy.tscn" id="4_dwyiq"]
 [ext_resource type="PackedScene" uid="uid://cmdky3q65l6gg" path="res://Sprites/Objects/Spikes.tscn" id="5_dn5ey"]
 [ext_resource type="Texture2D" uid="uid://ydbe1tyhvygu" path="res://Sprites/Objects/tile_0151.png" id="6_lmyl5"]
+[ext_resource type="Script" uid="uid://dhoond0nwtjcj" path="res://Coin.gd" id="6_mlbie"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lmyl5"]
 
@@ -49,7 +50,8 @@ position = Vector2(562, -76)
 position = Vector2(261, -27)
 
 [node name="Coin" type="Area2D" parent="."]
-position = Vector2(124, -11)
+position = Vector2(124, -14)
+script = ExtResource("6_mlbie")
 
 [node name="Sprite" type="Sprite2D" parent="Coin"]
 texture = ExtResource("6_lmyl5")
