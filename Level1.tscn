@@ -40,3 +40,4 @@ position = Vector2(164, -14)
 
 [node name="EndFlag" parent="." instance=ExtResource("6_mlbie")]
 position = Vector2(761, -134)
+next_scene = "uid://ijxny0tvjdd8"
