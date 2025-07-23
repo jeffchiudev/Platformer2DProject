@@ -1,23 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://taeh2lx7dy8w"]
+[gd_scene load_steps=7 format=4 uid="uid://taeh2lx7dy8w"]
 
 [ext_resource type="TileSet" uid="uid://8h44iclr03gd" path="res://Level1.tres" id="1_cove1"]
-[ext_resource type="Script" uid="uid://b3h31y0nehlcn" path="res://Player.gd" id="2_dwyiq"]
-[ext_resource type="Texture2D" uid="uid://cjfbasl7eygp0" path="res://Sprites/Characters/character_0002.png" id="3_dn5ey"]
+[ext_resource type="PackedScene" uid="uid://bwdd3sp5pvk7y" path="res://Player.tscn" id="2_lmyl5"]
 [ext_resource type="PackedScene" uid="uid://hdgt8xvq3nhl" path="res://Enemy.tscn" id="4_dwyiq"]
-[ext_resource type="PackedScene" uid="uid://cmdky3q65l6gg" path="res://Sprites/Objects/Spikes.tscn" id="5_dn5ey"]
-[ext_resource type="PackedScene" uid="uid://fpb50nt7wshj" path="res://Sprites/Objects/Coin.tscn" id="6_lmyl5"]
-[ext_resource type="Script" uid="uid://chvgum4voukkm" path="res://EndFlag.gd" id="7_s3sxq"]
-[ext_resource type="Texture2D" uid="uid://cop47aoytyxtb" path="res://Sprites/Objects/tile_0112.png" id="8_5py54"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lmyl5"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_lmyl5"]
-font_size = 48
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bjei"]
-size = Vector2(18, 18)
+[ext_resource type="PackedScene" uid="uid://cmdky3q65l6gg" path="res://Spikes.tscn" id="5_dn5ey"]
+[ext_resource type="PackedScene" uid="uid://fpb50nt7wshj" path="res://Coin.tscn" id="6_lmyl5"]
+[ext_resource type="PackedScene" uid="uid://bkxm27qcn858j" path="res://EndFlag.tscn" id="6_mlbie"]
 
 [node name="Main" type="Node2D"]
 
@@ -25,31 +13,7 @@ size = Vector2(18, 18)
 tile_map_data = PackedByteArray("AAAEAAEAAAACAAYAAAADAAEAAAACAAYAAAACAAEAAAACAAYAAAABAAEAAAACAAYAAAAAAAEAAAACAAYAAAAIAAEAAAACAAYAAAAHAAEAAAACAAYAAAAGAAEAAAACAAYAAAAFAAEAAAACAAYAAAAJAAEAAAACAAYAAAAKAAEAAAACAAYAAAALAAEAAAACAAYAAAANAAEAAAACAAYAAAAMAAEAAAACAAYAAAAZAPz/AAAMAAIAAAAZAP3/AAAMAAIAAAAZAP7/AAAMAAIAAAAZAP//AAAMAAIAAAAZAAAAAAAMAAIAAAAZAAEAAAAMAAIAAAAZAAIAAAAMAAIAAAAZAAMAAAAMAAIAAAAZAPv/AAAMAAAAAAAYAPv/AAAOAAAAAAAaAPv/AAAPAAAAAAAdAPv/AAAMAAYAAAAeAPv/AAANAAYAAAAfAPv/AAANAAYAAAAgAPv/AAANAAYAAAAhAPv/AAANAAYAAAAiAPv/AAAOAAQAAAAiAPz/AAANAAUAAAAjAPz/AAANAAYAAAAkAPz/AAANAAYAAAAlAPz/AAANAAYAAAAmAPz/AAAOAAUAAAAmAPv/AAAPAAUAAAAmAPr/AAAPAAUAAAAmAPn/AAANAAQAAAAnAPn/AAANAAYAAAAoAPn/AAANAAYAAAApAPn/AAANAAYAAAAqAPn/AAAOAAYAAAD//wAAAAACAAEAAAAAAAAAAAACAAEAAAABAAAAAAACAAEAAAACAAAAAAACAAEAAAADAAAAAAACAAEAAAAEAAAAAAACAAEAAAAFAAAAAAACAAEAAAAGAAAAAAACAAEAAAAHAAAAAAACAAEAAAAIAAAAAAACAAEAAAAJAAAAAAACAAEAAAAKAAAAAAACAAEAAAALAAAAAAACAAEAAAD//wEAAAACAAYAAAAOAP//AAACAAEAAAAOAAAAAAACAAYAAAAOAAEAAAACAAYAAAAPAP7/AAACAAEAAAAPAP//AAACAAYAAAAPAAAAAAACAAYAAAAPAAEAAAACAAYAAAAMAAAAAAACAAEAAAANAAAAAAACAAEAAAARAP3/AAACAAEAAAASAP3/AAACAAEAAAATAP3/AAACAAEAAAAVAPv/AAACAAEAAAA=")
 tile_set = ExtResource("1_cove1")
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
-script = ExtResource("2_dwyiq")
-
-[node name="Sprite" type="Sprite2D" parent="Player"]
-position = Vector2(0, -10)
-texture = ExtResource("3_dn5ey")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -11)
-scale = Vector2(1, 0.84)
-shape = SubResource("CapsuleShape2D_lmyl5")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -26)
-zoom = Vector2(3, 3)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
-
-[node name="ScoreText" type="Label" parent="Player/CanvasLayer"]
-offset_left = 18.0
-offset_top = -3.0
-offset_right = 199.0
-offset_bottom = 64.0
-text = "Score: 0"
-label_settings = SubResource("LabelSettings_lmyl5")
+[node name="Player" parent="." instance=ExtResource("2_lmyl5")]
 
 [node name="Enemy" parent="." instance=ExtResource("4_dwyiq")]
 
@@ -74,15 +38,5 @@ position = Vector2(144, -14)
 [node name="Coin3" parent="." instance=ExtResource("6_lmyl5")]
 position = Vector2(164, -14)
 
-[node name="EndFlag" type="Area2D" parent="."]
+[node name="EndFlag" parent="." instance=ExtResource("6_mlbie")]
 position = Vector2(761, -134)
-script = ExtResource("7_s3sxq")
-next_scene = "uid://taeh2lx7dy8w"
-
-[node name="Sprite" type="Sprite2D" parent="EndFlag"]
-texture = ExtResource("8_5py54")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndFlag"]
-shape = SubResource("RectangleShape2D_1bjei")
-
-[connection signal="body_entered" from="EndFlag" to="EndFlag" method="_on_body_entered"]
